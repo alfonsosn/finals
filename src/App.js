@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-mdl';
+import { Button, DataTable, TableHeader } from 'react-mdl';
 import four from './finals/four_hours.json'
 import three from './finals/three_hours.json'
 import './App.css';
@@ -14,6 +14,7 @@ class App extends Component {
       showClasses: false,
       three_hours: ["M,W", "M,Th", "M,W,Th", "T,W,F", "T,F", "T,Th", "W", "W,S"],
       four_hours: ["M,W", "M,Th", "T,F", "T,Th", "W,S"],
+      currSched: "",
       arrayToShow: [],
       classes: []
     }
@@ -30,6 +31,7 @@ class App extends Component {
   getClasses = (schedule) => {
     this.setState({
       showClasses: true,
+      currSched: schedule,
       classes: (this.state.hours === 3) ? three : four,
     })
   }
@@ -51,7 +53,7 @@ class App extends Component {
     }
 
     if (showClasses) {
-      list = <Classes data={this.state.classes}/>
+      list = <Classes data={this.state.classes} sched={this.state.currSched}/>
     }
 
     return (
@@ -91,6 +93,7 @@ function MoreButtons(props) {
         raised
         ripple
         onClick={()=>props.func(element)}
+        key={element}
         >
           {element}
     </Button>
@@ -108,16 +111,26 @@ function MoreButtons(props) {
 
 function Classes(props){
   const classes = props.data;
-  const listItems = classes.map((number) =>
-     <li>
-        {number.examDate} " - " {number.examSched}
-     </li>
-   );
+  const sched = props.sched;
+  const rowsForTable = classes
+              .filter(classe => (classe.weeklySched === sched))
+              .map(function(classe){
+                let obj = {}
+                obj.classHours = classe["classHours"]
+                obj.examDate = classe["examDate"]
+                obj.examSched = classe["examSched"]
+                return obj
+              })
+  
   return(
-    <ul> {listItems} </ul>
+    <DataTable
+        shadow={0}
+        rows={rowsForTable}>
+        <TableHeader name="classHours" tooltip="When Your Class Meets">Class Hours</TableHeader>
+        <TableHeader name="examDate" tooltip="Date of Your Final">Exam Date</TableHeader>
+        <TableHeader name="examSched" tooltip="Hours of your Final">Price</TableHeader>
+    </DataTable>
   )
 }
-
-
 
 export default App;
