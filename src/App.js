@@ -59,7 +59,6 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <h1> Final Schedule 2017 </h1>
           <h3> How many hours does your class regularly meet? </h3>
         </div>
         <Button
