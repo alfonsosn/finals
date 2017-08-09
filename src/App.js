@@ -13,8 +13,8 @@ class App extends Component {
       hours: '',
       showOrHide: false,
       showClasses: false,
-      three_hours: ["M,W", "M,Th", "M,W,Th", "T,W,F", "T,F", "T,Th", "W", "W,S"],
-      four_hours: ["M,W", "M,Th", "T,F", "T,Th", "W,S"],
+      three_hours: ["M,W", "M,TH", "M,W,TH", "T,W,F", "T,F", "T,TH", "W", "W,S"],
+      four_hours: ["M,W", "M,TH", "T,F", "T,TH", "W,S"],
       single_hours: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       currSched: "",
       arrayToShow: [],
@@ -112,8 +112,6 @@ class App extends Component {
     );
   }
 }
-
-
 
 function DaysButtons(props) {
   const array = props.args;

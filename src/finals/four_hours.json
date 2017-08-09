@@ -1,7 +1,7 @@
 [
 	{
 		"length": 4,
-		"weeklySched": "M, Th",
+		"weeklySched": "M,TH",
 		"classHours": "7:10-9:00 am",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -12,7 +12,7 @@
 
 	{
 		"length": 4,
-		"weeklySched": "M, Th",
+		"weeklySched": "M,TH",
 		"classHours": "8:10 - 10:00 am",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -23,7 +23,7 @@
 
 	{
 		"length": 4,
-		"weeklySched": "M, Th",
+		"weeklySched": "M,TH",
 		"classHours": "9:10 - 11:00 am",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -34,7 +34,7 @@
 
 	{
 		"length": 4,
-		"weeklySched": "M, Th",
+		"weeklySched": "M,TH",
 		"classHours": "11:10 - 1:00 pm",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -45,7 +45,7 @@
 
 	{
 		"length": 4,
-		"weeklySched": "M, Th",
+		"weeklySched": "M,TH",
 		"classHours": "1:10 - 3:00 pm",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -122,7 +122,7 @@
 
 	{
 		"length": 4,
-		"weeklySched": "T, Th",
+		"weeklySched": "T,TH",
 		"classHours": "3:10 - 5:00 pm",
 		"finalClass": "T",
 		"finalDate": "12/12/2017",
@@ -188,7 +188,7 @@
 
 	{
 		"length": 4,
-		"weeklySched": "T, Th",
+		"weeklySched": "T,TH",
 		"classHours": "5:35 - 7:35 pm",
 		"finalClass": "T",
 		"finalDate": "12/12/2017",
@@ -199,7 +199,7 @@
 
 	{
 		"length": 4,
-		"weeklySched": "T, Th",
+		"weeklySched": "T,TH",
 		"classHours": "7:45 - 9:45 pm",
 		"finalClass": "T",
 		"finalDate": "12/12/2017",
