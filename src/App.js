@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, DataTable, TableHeader } from 'react-mdl';
 import four from './finals/four_hours.json'
 import three from './finals/three_hours.json'
+import single from './finals/single_hours.json'
 import './App.css';
 
 
@@ -14,6 +15,7 @@ class App extends Component {
       showClasses: false,
       three_hours: ["M,W", "M,Th", "M,W,Th", "T,W,F", "T,F", "T,Th", "W", "W,S"],
       four_hours: ["M,W", "M,Th", "T,F", "T,Th", "W,S"],
+      single_hours: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       currSched: "",
       arrayToShow: [],
       classes: []
@@ -24,7 +26,7 @@ class App extends Component {
     this.setState({
       hours: hours,
       showOrHide: true,
-      arrayToShow: (hours === 3) ? this.state.three_hours : this.state.four_hours
+      arrayToShow: this.getArray(hours)
     });
   }
 
@@ -32,9 +34,28 @@ class App extends Component {
     this.setState({
       showClasses: true,
       currSched: schedule,
-      classes: (this.state.hours === 3) ? three : four,
+      classes: this.getFinals()
     })
   }
+
+  getArray = (hours) => {
+    if (hours === 3) 
+      return this.state.three_hours 
+    if (hours === 4)
+      return this.state.four_hours
+    if (hours === 5) 
+      return this.state.single_hours
+  }
+
+  getFinals = () => {
+    if (this.state.hours === 3) 
+      return three
+    if (this.state.hours === 4)
+      return four
+    if (this.state.hours === 5) 
+      return single
+  }
+
 
   render() {
 
@@ -42,18 +63,18 @@ class App extends Component {
     const showClasses = this.state.showClasses;
     const arrayToShow = this.state.arrayToShow
 
-    let button = null;
-    let list = null;
+    let weekButtons = null;
+    let finalSchedTables = null;
 
     if (showOrHide) {
-      button = <MoreButtons
+      weekButtons = <DaysButtons
                   args={arrayToShow}
                   func={this.getClasses}
                   />
     }
 
     if (showClasses) {
-      list = <Classes data={this.state.classes} sched={this.state.currSched}/>
+      finalSchedTables = <ClassesTable data={this.state.classes} sched={this.state.currSched}/>
     }
 
     return (
@@ -75,18 +96,26 @@ class App extends Component {
             >
                   4 hours
         </Button>
-
-        {button}
-        {list}
+        <p>
+        <Button
+            raised
+            ripple
+            onClick={() => {this.showArray(5)}}
+            >
+                  100-120-150
+        </Button>
+        </p>
+        {weekButtons}
+        {finalSchedTables}
 
       </div>
     );
   }
 }
 
-// refactor tomorrow
 
-function MoreButtons(props) {
+
+function DaysButtons(props) {
   const array = props.args;
   const listItems = array.map((element) =>
      <Button
@@ -108,8 +137,7 @@ function MoreButtons(props) {
 }
 
 // refactor tomorrow
-
-function Classes(props){
+function ClassesTable(props){
   const classes = props.data;
   const sched = props.sched;
   const rowsForTable = classes

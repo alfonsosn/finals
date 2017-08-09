@@ -45,7 +45,7 @@
 
 	{
 		"length": 3,
-		"weeklySched": "M,Th",
+		"weeklySched": "M, Th",
 		"classHours": "7:10-8:25 am",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -56,7 +56,7 @@
 
 	{
 		"length": 3,
-		"weeklySched": "M,Th",
+		"weeklySched": "M, Th",
 		"classHours": "8:10-9:25 am",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -89,7 +89,7 @@
 
 	{
 		"length": 3,
-		"weeklySched": "M,Th",
+		"weeklySched": "M, Th",
 		"classHours": "9:45-11:00 am",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -133,7 +133,7 @@
 
 	{
 		"length": 3,
-		"weeklySched": "M,Th",
+		"weeklySched": "M, TH",
 		"classHours": "11:10 - 12:25 pm",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -166,7 +166,7 @@
 
 	{
 		"length": 3,
-		"weeklySched": "M,Th",
+		"weeklySched": "M, Th",
 		"classHours": "1:10-2:25 pm",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
@@ -177,8 +177,8 @@
 
 	{
 		"length": 3,
-		"weeklySched": "M,Th",
-		"classHours": "2:45-4:00 pm ",
+		"weeklySched": "M, Th",
+		"classHours": "2:45-4:00 pm or",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
 		"examDay": "M",
@@ -211,7 +211,7 @@
 	{
 		"length": 3,
 		"weeklySched": "T,F",
-		"classHours": "3:45-5:00 pm ",
+		"classHours": "3:45-5:00 pm or",
 		"finalClass": "T",
 		"finalDate": "12/12/2017",
 		"examDay": "T",
@@ -221,7 +221,7 @@
 
 	{
 		"length": 3,
-		"weeklySched": "T,Th",
+		"weeklySched": "T, Th",
 		"classHours": "4:10–5:25 pm",
 		"finalClass": "T",
 		"finalDate": "12/12/2017",
@@ -233,7 +233,7 @@
 	{
 		"length": 3,
 		"weeklySched": "M,W,Th",
-		"classHours": "4:10-5:00 pm ",
+		"classHours": "4:10-5:00 pm or",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
 		"examDay": "W",
@@ -244,7 +244,7 @@
 	{
 		"length": 3,
 		"weeklySched": "M,W",
-		"classHours": "4:10-5:25 pm ",
+		"classHours": "4:10-5:25 pm or",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
 		"examDay": "W",
@@ -254,8 +254,8 @@
 
 	{
 		"length": 3,
-		"weeklySched": "M,Th",
-		"classHours": "4:10-5:25 pm ",
+		"weeklySched": "M, Th",
+		"classHours": "4:10-5:25 pm or",
 		"finalClass": "M",
 		"finalDate": "12/11/2017",
 		"examDay": "W",
@@ -327,5 +327,71 @@
 		"examDay": "S",
 		"examDate": "12/16/2017",
 		"examSched": "1:45 - 3:45 pm"
+	},
+
+	{
+		"length": 3,
+		"weeklySched": "M,W",
+		"classHours": "5:35-6:50 pm",
+		"finalClass": "M",
+		"finalDate": "12/11/2017",
+		"examDay": "W",
+		"examDate": "12/20/2017",
+		"examSched": "5:20 - 7:20 pm"
+	},
+
+	{
+		"length": 3,
+		"weeklySched": "M,W",
+		"classHours": "7:00-8:15 pm",
+		"finalClass": "M",
+		"finalDate": "12/11/2017",
+		"examDay": "M",
+		"examDate": "12/18/2017",
+		"examSched": "6:20 - 8:20 pm"
+	},
+
+	{
+		"length": 3,
+		"weeklySched": "M,W",
+		"classHours": "8:25-9:40 pm",
+		"finalClass": "M",
+		"finalDate": "12/11/2017",
+		"examDay": "W",
+		"examDate": "12/20/2017",
+		"examSched": "7:30 - 9:30 pm"
+	},
+
+	{
+		"length": 3,
+		"weeklySched": "T, Th",
+		"classHours": "5:35-6:50 pm",
+		"finalClass": "T",
+		"finalDate": "12/12/2017",
+		"examDay": "T",
+		"examDate": "12/19/2017",
+		"examSched": "5:20 - 7:20 pm"
+	},
+
+	{
+		"length": 3,
+		"weeklySched": "T, Th",
+		"classHours": "7:00-8:15 pm",
+		"finalClass": "T",
+		"finalDate": "12/12/2017",
+		"examDay": "Th",
+		"examDate": "12/14/2017",
+		"examSched": "6:20 - 8:20 pm"
+	},
+
+	{
+		"length": 3,
+		"weeklySched": "T, Th",
+		"classHours": "8:25-9:40 pm",
+		"finalClass": "T",
+		"finalDate": "12/12/2017",
+		"examDay": "T",
+		"examDate": "12/19/2017",
+		"examSched": "7:30 - 9:30 p"
 	}
 ]

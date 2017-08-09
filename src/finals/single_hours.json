@@ -1,0 +1,64 @@
+[
+	{
+		"length": "100-120-150",
+		"weeklySched": "Saturday",
+		"finalClass": "S",
+		"finalDate": "12/9/2017",
+		"examDay": "S",
+		"examDate": "12/16/2017 *"
+	},
+
+	{
+		"length": "100-120-150",
+		"weeklySched": "Sunday",
+		"finalClass": "Su",
+		"finalDate": "12/10/2017",
+		"examDay": "Su",
+		"examDate": "12/17/2017 *"
+	},
+
+	{
+		"length": "100-120-150",
+		"weeklySched": "Monday",
+		"finalClass": "M",
+		"finalDate": "12/11/2017",
+		"examDay": "M",
+		"examDate": "12/18/2017 *"
+	},
+
+	{
+		"length": "100-120-150",
+		"weeklySched": "Tuesday",
+		"finalClass": "T",
+		"finalDate": "12/12/2017",
+		"examDay": "T",
+		"examDate": "12/19/2017 *"
+	},
+
+	{
+		"length": "100-120-150",
+		"weeklySched": "Wednesday",
+		"finalClass": "W",
+		"finalDate": "12/6/2017",
+		"examDay": "W",
+		"examDate": "12/20/2017 *"
+	},
+
+	{
+		"length": "100-120-150",
+		"weeklySched": "Thursday",
+		"finalClass": "Th",
+		"finalDate": "12/7/2017",
+		"examDay": "Th",
+		"examDate": "12/14/2017 *"
+	},
+
+	{
+		"length": "100-120-150",
+		"weeklySched": "Friday",
+		"finalClass": "F",
+		"finalDate": "12/8/2017",
+		"examDay": "F",
+		"examDate": "12/15/2017 "
+	}
+]
