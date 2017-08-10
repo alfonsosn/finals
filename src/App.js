@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Button, DataTable, TableHeader } from 'react-mdl';
+import {Button, ProgressBar} from 'react-mdl';
+import ClassesTable from './functional/table.js'
+import DaysButtons from './functional/days-button.js'
 import four from './finals/four_hours.json'
 import three from './finals/three_hours.json'
 import single from './finals/single_hours.json'
@@ -39,21 +41,28 @@ class App extends Component {
   }
 
   getArray = (hours) => {
-    if (hours === 3) 
-      return this.state.three_hours 
+    if (hours === 3)
+      return this.state.three_hours
     if (hours === 4)
       return this.state.four_hours
-    if (hours === 5) 
+    if (hours === 5)
       return this.state.single_hours
   }
 
   getFinals = () => {
-    if (this.state.hours === 3) 
+    if (this.state.hours === 3)
       return three
     if (this.state.hours === 4)
       return four
-    if (this.state.hours === 5) 
+    if (this.state.hours === 5)
       return single
+  }
+
+  getProgress = () => {
+    if (this.state.showOrHide && this.state.showClasses) return 100
+    if (this.state.showOrHide) return 66
+    else return 33
+
   }
 
 
@@ -78,10 +87,16 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div  className="App"
+            style={{margin: '40px 28px'}}>
+
+        <ProgressBar  style={{width: 'auto'}} 
+                      progress={this.getProgress()}/>
+
         <div>
           <h3> How many hours does your class regularly meet? </h3>
         </div>
+
         <Button
             raised
             ripple
@@ -96,7 +111,6 @@ class App extends Component {
             >
                   4 hours
         </Button>
-        <p>
         <Button
             raised
             ripple
@@ -104,7 +118,8 @@ class App extends Component {
             >
                   100-120-150
         </Button>
-        </p>
+
+
         {weekButtons}
         {finalSchedTables}
 
@@ -113,53 +128,5 @@ class App extends Component {
   }
 }
 
-function DaysButtons(props) {
-  const array = props.args;
-  const listItems = array.map((element) =>
-     <Button
-        raised
-        ripple
-        onClick={()=>props.func(element)}
-        key={element}
-        >
-          {element}
-    </Button>
-   );
-
-   return (
-     <div>
-     <h3> Which day a week? </h3>
-      {listItems}
-     </div>
-   );
-}
-
-// refactor tomorrow
-function ClassesTable(props){
-  const classes = props.data;
-  const sched = props.sched;
-  const rowsForTable = classes
-              .filter(classe => (classe.weeklySched === sched))
-              .map(function(classe){
-                let obj = {}
-                obj.classHours = classe["classHours"]
-                obj.examDate = classe["examDate"]
-                obj.examSched = classe["examSched"]
-                return obj
-              })
-
-  return(
-    <div>
-    <h3> Possible exam results</h3>
-    <DataTable
-        shadow={0}
-        rows={rowsForTable}>
-        <TableHeader name="classHours" tooltip="When Your Class Meets">Class Hours</TableHeader>
-        <TableHeader name="examDate" tooltip="Date of Your Final">Exam Date</TableHeader>
-        <TableHeader name="examSched" tooltip="Hours of your Final">Exam Schedule</TableHeader>
-    </DataTable>
-    </div>
-  )
-}
 
 export default App;
