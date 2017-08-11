@@ -5,9 +5,8 @@ import { DataTable, TableHeader } from 'react-mdl';
 const ClassesTable = (props) => {
   const classes = props.data;
   const sched = props.sched;
-  const rowsForTable = classes
-              .filter(classe => (classe.weeklySched === sched))
-              .map(function(classe){
+  const rowsForTable =
+      classes.filter(classe => (classe.weeklySched === sched)).map(function(classe){
                 let obj = {}
                 obj.classHours = classe["classHours"]
                 obj.examDate = classe["examDate"]
@@ -21,18 +20,18 @@ const ClassesTable = (props) => {
     <DataTable
         shadow={0}
         rows={rowsForTable}>
-            <TableHeader 
-              name="classHours" 
+            <TableHeader
+              name="classHours"
               tooltip="When Your Class Meets">
                   Class Hours
             </TableHeader>
-            <TableHeader 
-              name="examDate" 
+            <TableHeader
+              name="examDate"
               tooltip="Date of Your Final">
                   Exam Date
             </TableHeader>
-            <TableHeader 
-              name="examSched" 
+            <TableHeader
+              name="examSched"
               tooltip="Hours of your Final">
                   Exam Schedule
             </TableHeader>

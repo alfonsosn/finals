@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {Button, ProgressBar} from 'react-mdl';
-import ClassesTable from './functional/table.js'
-import DaysButtons from './functional/days-button.js'
-import four from './finals/four_hours.json'
-import three from './finals/three_hours.json'
-import single from './finals/single_hours.json'
+import {ProgressBar} from 'react-mdl';
+import ClassesTable from './functional/finals-table.js'
+import DaysButtons from './functional/days-buttons.js'
+import HoursButtons from './functional/hours-buttons.js'
+import UGRAD_FOUR_JSON from './finals/ugrad_four.json'
+import UGRAD_THREE_JSON from './finals/ugrad_three.json'
+import SINGLES_JSON from './finals/all_singles.json'
 import './App.css';
 
 
@@ -21,10 +22,12 @@ class App extends Component {
       currSched: "",
       arrayToShow: [],
       classes: []
-    }
+    };
   }
 
   showArray = (hours) => {
+    console.log(hours)
+
     this.setState({
       hours: hours,
       showOrHide: true,
@@ -37,31 +40,31 @@ class App extends Component {
       showClasses: true,
       currSched: schedule,
       classes: this.getFinals()
-    })
+    });
   }
 
   getArray = (hours) => {
     if (hours === 3)
-      return this.state.three_hours
+      return this.state.three_hours;
     if (hours === 4)
-      return this.state.four_hours
+      return this.state.four_hours;
     if (hours === 5)
-      return this.state.single_hours
+      return this.state.single_hours;
   }
 
   getFinals = () => {
     if (this.state.hours === 3)
-      return three
+      return UGRAD_THREE_JSON;
     if (this.state.hours === 4)
-      return four
+      return UGRAD_FOUR_JSON;
     if (this.state.hours === 5)
-      return single
+      return SINGLES_JSON;
   }
 
   getProgress = () => {
-    if (this.state.showOrHide && this.state.showClasses) return 100
-    if (this.state.showOrHide) return 66
-    else return 33
+    if (this.state.showOrHide && this.state.showClasses) return 100;
+    if (this.state.showOrHide) return 66;
+    else return 33;
 
   }
 
@@ -70,10 +73,11 @@ class App extends Component {
 
     const showOrHide = this.state.showOrHide;
     const showClasses = this.state.showClasses;
-    const arrayToShow = this.state.arrayToShow
+    const arrayToShow = this.state.arrayToShow;
 
     let weekButtons = null;
     let finalSchedTables = null;
+    let hoursButtons = <HoursButtons handleClick={(i) => this.showArray(i)} />
 
     if (showOrHide) {
       weekButtons = <DaysButtons
@@ -90,39 +94,16 @@ class App extends Component {
       <div  className="App"
             style={{margin: '40px 28px'}}>
 
-        <ProgressBar  style={{width: 'auto'}} 
+        <ProgressBar  style={{width: 'auto'}}
                       progress={this.getProgress()}/>
 
         <div>
-          <h3> How many hours does your class regularly meet? </h3>
+          <h3> How many hours does your class meet weekly? </h3>
         </div>
 
-        <Button
-            raised
-            ripple
-            onClick={() => {this.showArray(3)}}
-            >
-                  3 hours
-        </Button>
-        <Button
-            raised
-            ripple
-            onClick={() => {this.showArray(4)}}
-            >
-                  4 hours
-        </Button>
-        <Button
-            raised
-            ripple
-            onClick={() => {this.showArray(5)}}
-            >
-                  100-120-150
-        </Button>
-
-
+        {hoursButtons}
         {weekButtons}
         {finalSchedTables}
-
       </div>
     );
   }
