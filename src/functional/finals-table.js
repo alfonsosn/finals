@@ -15,7 +15,7 @@ const ClassesTable = (props) => {
               })
 
   return(
-    <div>
+    <div style={props.style}>
     <h3> Possible exam results</h3>
     <DataTable
         shadow={0}

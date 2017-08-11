@@ -9,6 +9,16 @@ import SINGLES_JSON from './finals/all_singles.json'
 import './App.css';
 
 
+const styles = {
+  card: {
+      margin: '40px 28px',
+      paddingBottom: '28px',
+      backgroundColor: 'white',
+      boxShadow: '0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2)',
+    }
+};
+
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -83,27 +93,25 @@ class App extends Component {
       weekButtons = <DaysButtons
                   args={arrayToShow}
                   func={this.getClasses}
+                  style={styles.card}
                   />
     }
 
     if (showClasses) {
-      finalSchedTables = <ClassesTable data={this.state.classes} sched={this.state.currSched}/>
+      finalSchedTables = <ClassesTable style={styles.card} data={this.state.classes} sched={this.state.currSched}/>
     }
 
     return (
-      <div  className="App"
-            style={{margin: '40px 28px'}}>
+      <div  className="App">
 
-        <ProgressBar  style={{width: 'auto'}}
-                      progress={this.getProgress()}/>
-
-        <div>
+        <div style={styles.card}>
+          <ProgressBar  style={{width: 'auto'}} progress={this.getProgress()}/>
           <h3> How many hours does your class meet weekly? </h3>
+          {hoursButtons}
         </div>
 
-        {hoursButtons}
-        {weekButtons}
-        {finalSchedTables}
+        {weekButtons }
+        {finalSchedTables }
       </div>
     );
   }

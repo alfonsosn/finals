@@ -15,7 +15,7 @@ const DaysButtons = (props) => {
    );
 
    return (
-     <div>
+     <div style={props.style}>
      <h3> Which day a week? </h3>
           {listItems}
      </div>
