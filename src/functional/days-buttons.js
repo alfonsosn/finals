@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from 'react-mdl';
+import {Button, Card, CardActions} from 'react-mdl';
 
 const DaysButtons = (props) => {
   const array = props.args;
@@ -15,10 +15,12 @@ const DaysButtons = (props) => {
    );
 
    return (
-     <div style={props.style}>
-     <h3> Which day a week? </h3>
-          {listItems}
-     </div>
+     <Card shadow={0} style={{width: 'auto'}}>
+      <h2>Which day a week?</h2>
+      <CardActions border>
+        {listItems}
+      </CardActions>
+     </Card>
    );
 }
 

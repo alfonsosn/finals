@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {ProgressBar} from 'react-mdl';
+import Greeting from './functional/greeting-card.js'
 import ClassesTable from './functional/finals-table.js'
 import DaysButtons from './functional/days-buttons.js'
-import HoursButtons from './functional/hours-buttons.js'
+import HoursMenu from './functional/hours-buttons.js'
 import UGRAD_FOUR_JSON from './finals/ugrad_four.json'
 import UGRAD_THREE_JSON from './finals/ugrad_three.json'
 import SINGLES_JSON from './finals/all_singles.json'
@@ -36,8 +36,6 @@ class App extends Component {
   }
 
   showArray = (hours) => {
-    console.log(hours)
-
     this.setState({
       hours: hours,
       showOrHide: true,
@@ -53,6 +51,7 @@ class App extends Component {
     });
   }
 
+  // HELPER FUNCTIONS
   getArray = (hours) => {
     if (hours === 3)
       return this.state.three_hours;
@@ -75,7 +74,6 @@ class App extends Component {
     if (this.state.showOrHide && this.state.showClasses) return 100;
     if (this.state.showOrHide) return 66;
     else return 33;
-
   }
 
 
@@ -87,29 +85,26 @@ class App extends Component {
 
     let weekButtons = null;
     let finalSchedTables = null;
-    let hoursButtons = <HoursButtons handleClick={(i) => this.showArray(i)} />
+
+    // this can be refactored
 
     if (showOrHide) {
       weekButtons = <DaysButtons
-                  args={arrayToShow}
-                  func={this.getClasses}
-                  style={styles.card}
-                  />
+                        args={arrayToShow}
+                        func={this.getClasses}
+                        style={styles.card}/>
     }
 
     if (showClasses) {
-      finalSchedTables = <ClassesTable style={styles.card} data={this.state.classes} sched={this.state.currSched}/>
+      finalSchedTables = <ClassesTable
+                            style={styles.card}
+                            data={this.state.classes}
+                            sched={this.state.currSched}/>
     }
 
     return (
       <div  className="App">
-
-        <div style={styles.card}>
-          <ProgressBar  style={{width: 'auto'}} progress={this.getProgress()}/>
-          <h3> How many hours does your class meet weekly? </h3>
-          {hoursButtons}
-        </div>
-
+        <HoursMenu handleClick={(i) => this.showArray(i)}/>
         {weekButtons }
         {finalSchedTables }
       </div>

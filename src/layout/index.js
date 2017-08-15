@@ -8,11 +8,11 @@ const Start = () => {
   return(
     <div style={{display: 'table-header-group', position: 'relative'}}>
       <Layout fixedHeader fixedTabs
-              style={{backgroundColor: 'lightgrey'}}>
+              style={{backgroundColor: '#eaeaea'}}>
 
         <Header style={{background: 'purple'}}>
             <HeaderRow
-                title="Hunter College - Finals Scheduler, Fall 2017"/>
+                title="Hunter College"/>
         </Header>
 
         <Content>

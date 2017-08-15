@@ -1,32 +1,37 @@
 import React from 'react';
-import {Button} from 'react-mdl';
+import {Card, CardActions, Tabs, Tab} from 'react-mdl';
 
-const HoursButtons = (props) =>{
+const HoursMenu = (props) =>{
   return(
-    <div>
-      <Button
+    <Card shadow={0} style={{width: 'auto', margin: '10px 0px'}}>
+      <h3>Number of Hours You Meet Weekly</h3>
+      <CardActions border>
+        <Tabs>
+          <Tab
+          raised
+          ripple
+          onClick={() => props.handleClick(5)}
+          >
+            Less Than 3hrs
+          </Tab>
+          <Tab
             raised
             ripple
-            onClick={props.handleClick.bind(this, 3)}
+            onClick={() => props.handleClick(3)}
             >
-                  3 hours
-        </Button>
-        <Button
+              Combined 3hrs
+            </Tab>
+            <Tab
             raised
             ripple
-            onClick={props.handleClick.bind(this, 4)}
+            onClick={() => props.handleClick(4)}
             >
-                  4 hours
-        </Button>
-        <Button
-            raised
-            ripple
-            onClick={props.handleClick.bind(this, 5)}
-            >
-                  100-120-150
-        </Button>
-    </div>
+              Combined 4hrs
+            </Tab>
+          </Tabs>
+        </CardActions>
+    </Card>
   )
 }
 
-export default HoursButtons;
+export default HoursMenu;
