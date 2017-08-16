@@ -1,6 +1,6 @@
 import React from 'react';
+import {Card, Tooltip} from 'react-mdl';
 import { Table } from 'reactstrap';
-import {Card} from 'react-mdl';
 
 // refactor tomorrow
 const ClassesTable = (props) => {
@@ -17,19 +17,25 @@ const ClassesTable = (props) => {
               ))
   return(
     <Card shadow={0} style={props.style}>
-      <h3> Possible exam results</h3>
-      <Table hover style={{width: '100%', textAlign:"left"}}>
+      <h3> Your Final Exam Schedule </h3>
+      <Table hover style={{width: '90%', textAlign:"left"}}>
         <thead>
           <tr>
             <th>#</th>
             <th>
-                  Class Hours
+              <Tooltip label="When Your Class Meets">
+                Class Hours
+              </Tooltip>
             </th>
             <th>
+              <Tooltip label="Your exam date">
                   Exam Date
+              </Tooltip>
             </th>
             <th>
+              <Tooltip label="Your exam time">
                   Exam Schedule
+              </Tooltip>
             </th>
           </tr>
         </thead>
