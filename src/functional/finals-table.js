@@ -1,42 +1,42 @@
 import React from 'react';
-import {Card, DataTable, TableHeader } from 'react-mdl';
+import { Table } from 'reactstrap';
+import {Card} from 'react-mdl';
 
 // refactor tomorrow
 const ClassesTable = (props) => {
   const schedule = props.schedule;
   const schedules_finals = props.data;
   const rowsForTable =
-      schedules_finals.filter(course => (course.weeklySched === schedule)).map(function(course){
-                let obj = {}
-                obj.classHours = course["classHours"]
-                obj.examDate = course["examDate"]
-                obj.examSched = course["examSched"]
-                return obj
-              })
-
+      schedules_finals.filter(course => (course.weeklySched === schedule)).map((course, index) => (
+                <tr>
+                  <td>{index}</td>
+                  <td>{course["classHours"]}</td>
+                  <td>{course["examDate"]}</td>
+                  <td>{course["examSched"]}</td>
+                </tr>
+              ))
   return(
     <Card shadow={0} style={props.style}>
       <h3> Possible exam results</h3>
-      <DataTable
-          shadow={0}
-          style={{width: '100%'}}
-          rows={rowsForTable}>
-              <TableHeader
-                name="classHours"
-                tooltip="When Your Class Meets">
-                    Class Hours
-              </TableHeader>
-              <TableHeader
-                name="examDate"
-                tooltip="Date of Your Final">
-                    Exam Date
-              </TableHeader>
-              <TableHeader
-                name="examSched"
-                tooltip="Hours of your Final">
-                    Exam Schedule
-              </TableHeader>
-      </DataTable>
+      <Table hover style={{width: '100%', textAlign:"left"}}>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>
+                  Class Hours
+            </th>
+            <th>
+                  Exam Date
+            </th>
+            <th>
+                  Exam Schedule
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {rowsForTable}
+        </tbody>
+      </Table>
     </Card>
   )
 }
