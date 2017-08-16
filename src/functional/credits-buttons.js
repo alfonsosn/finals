@@ -22,7 +22,7 @@ const CreditsMenu = (props) =>{
 
   return(
     <Card shadow={0} style={props.style}>
-      <h3>Number of Credits in your Class</h3>
+      <h3>Your Exam Credits</h3>
       <CardActions border>
         <Grid>
           {credits_buttons }

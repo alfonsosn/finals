@@ -17,7 +17,7 @@ const ClassesTable = (props) => {
               ))
   return(
     <Card shadow={0} style={props.style}>
-      <h3> Your Final Exam Schedule </h3>
+      <h3> Possible Exam Date </h3>
       <Table hover style={{width: '90%', textAlign:"left"}}>
         <thead>
           <tr>
