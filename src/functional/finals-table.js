@@ -15,7 +15,9 @@ const ClassesTable = (props) => {
               })
 
   return(
-    <Card shadow={0} style={{width: 'auto'}}>
+    <Card
+        shadow={0}
+        style={{width: 'auto'}}>
       <h3> Possible exam results</h3>
       <DataTable
           shadow={0}

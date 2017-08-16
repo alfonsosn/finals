@@ -10,11 +10,6 @@ const Start = () => {
       <Layout fixedHeader fixedTabs
               style={{backgroundColor: '#eaeaea'}}>
 
-        <Header style={{background: 'purple'}}>
-            <HeaderRow
-                title="Hunter College"/>
-        </Header>
-
         <Content>
         <Grid className="demo-grid-1">
             <Cell col={2}></Cell>
