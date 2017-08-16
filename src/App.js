@@ -8,6 +8,16 @@ import UGRAD_THREE_JSON from './finals/ugrad_three.json'
 import SINGLES_JSON from './finals/all_singles.json'
 import './App.css';
 
+
+const styles = {
+  card: {
+    width: 'auto',
+    margin: '10px 0px',
+    transition: 'all 0.2s'
+  }
+};
+
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -28,7 +38,8 @@ class App extends Component {
     this.setState({
       hours: hours,
       showDays: true,
-      arrayToShow: this.getArray(hours)
+      showFinalsTable: false,
+      arrayToShow: this.getArray(hours),
     });
   }
 
@@ -36,50 +47,55 @@ class App extends Component {
     this.setState({
       showFinalsTable: true,
       currSched: schedule,
-      classes: this.getFinals()
+      classes: this.getFinals(),
     });
   }
 
   // HELPER FUNCTIONS
   getArray = (hours) => {
-    if (hours === 3)
-      return this.state.three_hours;
-    if (hours === 4)
-      return this.state.four_hours;
-    if (hours === 5)
-      return this.state.single_hours;
+    switch (hours) {
+      case 1:
+        return this.state.single_hours;
+        break;
+      case 3:
+        return this.state.three_hours;
+        break;
+      case 4:
+        return this.state.four_hours;
+        break;
+    }
   }
 
   getFinals = () => {
-    if (this.state.hours === 3)
-      return UGRAD_THREE_JSON;
-    if (this.state.hours === 4)
-      return UGRAD_FOUR_JSON;
-    if (this.state.hours === 5)
-      return SINGLES_JSON;
+    switch (this.state.hours) {
+      case 1:
+        return SINGLES_JSON;
+        break;
+      case 3:
+        return UGRAD_THREE_JSON;
+        break;
+      case 4:
+        return UGRAD_FOUR_JSON;
+        break;
+    }
   }
 
   getProgress = () => {
     if (this.state.showDays && this.state.showFinalsTable) return 100;
-    if (this.state.showDays) return 66;
+    else if (this.state.showDays) return 66;
     else return 33;
   }
 
-
   render() {
-
-    const showDays = this.state.showDays;
-    const showFinalsTable = this.state.showFinalsTable;
-    const arrayToShow = this.state.arrayToShow;
 
     return (
       <div  className="App">
-        <CreditsMenu handleClick={(i) => this.showArray(i)}/>
+        <CreditsMenu style={styles.card} handleClick={(i) => this.showArray(i)}/>
         {
-          showDays ? <DaysButtons args={arrayToShow} handleClick={this.getClasses}/> : ""
+          this.state.showDays ? <DaysButtons style={styles.card} args={this.state.arrayToShow} handleClick={this.getClasses} /> : ""
         }
         {
-          showFinalsTable ? <ClassesTable data={this.state.classes} sched={this.state.currSched}/> : ""
+          this.state.showFinalsTable ? <ClassesTable schedule={this.state.currSched} style={styles.card} data={this.state.classes}/> : ""
         }
       </div>
     );

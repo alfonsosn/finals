@@ -3,24 +3,23 @@ import {Card, DataTable, TableHeader } from 'react-mdl';
 
 // refactor tomorrow
 const ClassesTable = (props) => {
-  const classes = props.data;
-  const sched = props.sched;
+  const schedule = props.schedule;
+  const schedules_finals = props.data;
   const rowsForTable =
-      classes.filter(classe => (classe.weeklySched === sched)).map(function(classe){
+      schedules_finals.filter(course => (course.weeklySched === schedule)).map(function(course){
                 let obj = {}
-                obj.classHours = classe["classHours"]
-                obj.examDate = classe["examDate"]
-                obj.examSched = classe["examSched"]
+                obj.classHours = course["classHours"]
+                obj.examDate = course["examDate"]
+                obj.examSched = course["examSched"]
                 return obj
               })
 
   return(
-    <Card
-        shadow={0}
-        style={{width: 'auto'}}>
+    <Card shadow={0} style={props.style}>
       <h3> Possible exam results</h3>
       <DataTable
           shadow={0}
+          style={{width: '100%'}}
           rows={rowsForTable}>
               <TableHeader
                 name="classHours"

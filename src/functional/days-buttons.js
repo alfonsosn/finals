@@ -21,7 +21,7 @@ const DaysButtons = (props) => {
    );
 
    return (
-     <Card shadow={0} style={{width: 'auto'}}>
+     <Card shadow={0} style={props.style}>
       <h3>Which days a week do you meet?</h3>
       <CardActions border>
         <Grid>
