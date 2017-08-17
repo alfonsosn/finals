@@ -23,9 +23,7 @@ table{
     z-index:999;
 }
 
-.dropdown a {
-  text-decoration: none;
-}
+.dropdown a 
 
 
 .dropdown-content{

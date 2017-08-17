@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {ProgressBar} from 'react-mdl';
 import Greeting from './functional/greeting-card.js'
 import ClassesTable from './functional/finals-table.js'
 import DaysButtons from './functional/days-buttons.js'
@@ -7,7 +8,6 @@ import UGRAD_FOUR_JSON from './finals/ugrad_four.json'
 import UGRAD_THREE_JSON from './finals/ugrad_three.json'
 import SINGLES_JSON from './finals/all_singles.json'
 import './App.css';
-
 
 const styles = {
   card: {
@@ -89,7 +89,8 @@ class App extends Component {
   render() {
 
     return (
-      <div  className="App">
+      <div className="App">
+        <ProgressBar style={{width: 'auto'}} progress={this.getProgress()}/>
         <CreditsMenu style={styles.card} handleClick={(i) => this.showArray(i)}/>
         {
           this.state.showDays ? <DaysButtons style={styles.card} args={this.state.arrayToShow} handleClick={this.getClasses} /> : ""

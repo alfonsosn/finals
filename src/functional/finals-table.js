@@ -7,9 +7,26 @@ let event: {
       title: 'Final Exam',
       description: 'Registrar Office - Hunter College',
       location: 'New York City, NY',
-      startTime: '2016-09-16T20:15:00-04:00',
-      endTime: '2016-09-16T21:45:00-04:00'
     }
+
+let makeDateFromCourse = (course) => (
+     course.split("-")
+     .map(function(hour){
+          console.log(hour)
+          var time = hour
+          var hours = Number(time.match(/(\d+)/)[0]);
+          var minutes = Number(time.match(/:(\d+)/)[1]);
+          var AMPM = time.match(/(am|pm)/)[0];
+          if(AMPM == "pm" && hours<12) hours = hours+12;
+          if(AMPM == "am" && hours==12) hours = hours-12;
+          var sHours = hours.toString();
+          var sMinutes = minutes.toString();
+          if(hours<10) sHours = "0" + sHours;
+          if(minutes<10) sMinutes = "0" + sMinutes;
+          return sHours + ":" + sMinutes;
+      }
+    )
+  )
 
 // refactor tomorrow
 const ClassesTable = (props) => {
@@ -19,32 +36,20 @@ const ClassesTable = (props) => {
       schedules_finals
       .filter(course => (course.weeklySched === schedule))
       .map((course, index) => (
-          <tr>
-            <td>{index}</td>
-            <td>{course["classHours"]}</td>
-            <td>{course["examDate"]}</td>
-            <td>{course["examSched"]} </td>
-            <td>
-              <AddToCalendar
-                  buttonLabel="Add To Calendar"
-                  buttonClassClosed="mdl-button mdl-js-button"
-                  rootClass="dropdown"
-                  dropdownClass="dropdown-content"
-                  event={event}
-                  listItems={[ { apple: 'Apple' }, { google: 'Google' }]}/>
-            </td>
-          </tr>
+            <tr>
+              <td>{course["classHours"]}</td>
+              <td>{course["examDate"]}</td>
+              <td>{course["examSched"]} </td>
+            </tr>
+          )
         )
-      )
 
   return(
     <Card shadow={0} style={props.style} className="padding-bottom">
       <h3> Possible Exam Date </h3>
-      <addToCal/>
       <Table hover style={{width: '90%', textAlign:"left"}}>
         <thead>
           <tr>
-            <th>#</th>
             <th>
               <Tooltip label="When Your Class Meets">
                 Class Hours
