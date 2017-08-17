@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {ProgressBar} from 'react-mdl';
-import Greeting from './functional/greeting-card.js'
 import ClassesTable from './functional/finals-table.js'
 import DaysButtons from './functional/days-buttons.js'
 import CreditsMenu from './functional/credits-buttons.js'
+import PartiallyHidden from './layout/partially-hidden.js'
 import UGRAD_FOUR_JSON from './finals/ugrad_four.json'
 import UGRAD_THREE_JSON from './finals/ugrad_three.json'
 import SINGLES_JSON from './finals/all_singles.json'
@@ -12,8 +12,7 @@ import './App.css';
 const styles = {
   card: {
     width: 'auto',
-    margin: '10px 0px',
-    transition: 'all 0.2s'
+    margin: '10px 0px'
   }
 };
 
@@ -93,10 +92,13 @@ class App extends Component {
         <ProgressBar style={{width: 'auto'}} progress={this.getProgress()}/>
         <CreditsMenu style={styles.card} handleClick={(i) => this.showArray(i)}/>
         {
-          this.state.showDays ? <DaysButtons style={styles.card} args={this.state.arrayToShow} handleClick={this.getClasses} /> : ""
+        this.state.showDays ? <DaysButtons style={styles.card} args={this.state.arrayToShow} handleClick={this.getClasses} /> : <PartiallyHidden title="Days Your Class Meets"/>
         }
         {
-          this.state.showFinalsTable ? <ClassesTable schedule={this.state.currSched} style={styles.card} data={this.state.classes}/> : ""
+          this.state.showFinalsTable ? <ClassesTable style={styles.card} schedule={this.state.currSched} data={this.state.classes}/> : <PartiallyHidden title="Possible Exam Date"/> 
+        }
+        {
+
         }
       </div>
     );
