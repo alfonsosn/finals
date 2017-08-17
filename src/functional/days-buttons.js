@@ -11,7 +11,6 @@ const DaysButtons = (props) => {
       col={3}>
         <Button
           raised
-          ripple
           style={{width: '100%'}}
           onClick={()=>props.handleClick(day)}
           key={day}>

@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^15.6.1",
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^20.1.0",
+    "moment": "^2.18.1",
+    "react": "^15.5.0",
+    "react-add-to-calendar": "^0.1.4",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
-    "react-dom": "^15.6.1",
+    "react-dom": "^15.5.0",
+    "react-icons": "^2.2.5",
     "react-mdl": "^1.10.3",
     "react-scripts": "1.0.10",
     "reactstrap": "^4.8.0"
