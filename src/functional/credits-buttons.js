@@ -20,7 +20,7 @@ const CreditsMenu = (props) =>{
 
   return(
     <Card shadow={0} style={props.style}>
-      <h3>Your Class Credits</h3>
+      <h4>Your Class Credits</h4>
       <CardActions border>
         <Grid>
           {credits_buttons }

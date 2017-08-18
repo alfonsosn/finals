@@ -16,7 +16,6 @@ const styles = {
   }
 };
 
-
 class App extends Component {
   constructor(props){
     super(props);
@@ -89,16 +88,31 @@ class App extends Component {
 
     return (
       <div className="App">
-        <ProgressBar style={{width: 'auto'}} progress={this.getProgress()}/>
-        <CreditsMenu style={styles.card} handleClick={(i) => this.showArray(i)}/>
-        {
-        this.state.showDays ? <DaysButtons style={styles.card} args={this.state.arrayToShow} handleClick={this.getClasses} /> : <PartiallyHidden title="Days Your Class Meets"/>
-        }
-        {
-          this.state.showFinalsTable ? <ClassesTable style={styles.card} schedule={this.state.currSched} data={this.state.classes}/> : <PartiallyHidden title="Possible Exam Date"/> 
-        }
-        {
+        <ProgressBar
+              style={{width: 'auto'}}
+              progress={this.getProgress()}/>
 
+        <CreditsMenu
+              style={styles.card}
+              handleClick={(i) => this.showArray(i)}/>
+        {
+          this.state.showDays ?
+              <DaysButtons  style={styles.card}
+                            args={this.state.arrayToShow}
+                            handleClick={this.getClasses}
+                            hours={this.state.hours} />
+              :
+              <PartiallyHidden title="Days Your Class Meets"/>
+        }
+        {
+          this.state.showFinalsTable ?
+              <ClassesTable   style={styles.card}
+                              schedule={this.state.currSched}
+                              data={this.state.classes}
+                              hours={this.state.hours}
+                              />
+              :
+              <PartiallyHidden title="Possible Exam Date"/>
         }
       </div>
     );

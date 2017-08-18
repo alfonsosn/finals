@@ -1,14 +1,16 @@
 import React from 'react';
-import {Card, Tooltip, Button} from 'react-mdl';
+import {Card, CardText, Tooltip, Button} from 'react-mdl';
 import { Table } from 'reactstrap';
 import AddToCalendar from 'react-add-to-calendar';
 
+// for future use
 let event: {
       title: 'Final Exam',
       description: 'Registrar Office - Hunter College',
       location: 'New York City, NY',
     }
 
+// For future use
 let makeDateFromCourse = (course) => (
      course.split("-")
      .map(function(hour){
@@ -46,7 +48,7 @@ const ClassesTable = (props) => {
 
   return(
     <Card shadow={0} style={props.style} className="padding-bottom">
-      <h3> Possible Exam Date </h3>
+      <h4> Classes of {props.hours > 1 ? props.hours : "less than 3 " } credits that meet <br/>{props.schedule} </h4>
       <Table hover style={{width: '90%', textAlign:"left"}}>
         <thead>
           <tr>
@@ -71,6 +73,11 @@ const ClassesTable = (props) => {
           {rowsForTable}
         </tbody>
       </Table>
+      {
+        (props.hours === 1) ? <CardText style={{width: '100%', textAlign:"left"}}>
+          * Final exams for classes that meet once per week are held on the date noted for the number of minutes they usually meet (100-120-150 minutes)
+        </CardText> : ""
+      }
     </Card>
   )
 }

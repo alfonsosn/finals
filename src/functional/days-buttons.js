@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardActions, Grid, Cell, Button} from 'react-mdl';
+import {Card, CardActions, Grid, Cell, Button, CardText} from 'react-mdl';
 
 const DaysButtons = (props) => {
   const days_array = props.args;
@@ -21,7 +21,7 @@ const DaysButtons = (props) => {
 
    return (
      <Card shadow={0} style={props.style}>
-      <h3>Days Your Class Meets</h3>
+      <h4>Days Your Class Meets</h4>
       <CardActions border>
         <Grid>
           {days_buttons }
