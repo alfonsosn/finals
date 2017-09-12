@@ -1,0 +1,9 @@
+<ol>
+  <li>The examination for a course with multiple components (Lec, Lab, Rec) should be scheduled according to the time the lecture is given.</li>
+  <li>The room assigned for the examination must be the same one in which the class regularly meets.</li>
+  <li>Be sure to inform your students of the dates and times of your final examinations.</li>
+  <li>Please contact the Registrar’s Office – Scheduling Division for Reading and/or Uniform Final rooms.</li>
+  <li>Classes that meet in an IRREGULAR pattern will match the FIRST hour of the CLOSEST pattern and schedule the examination accordingly.</li>
+  <li>If your class meets off the regular Hunter College bell schedule, please contact the Registrar's Office two months before finals begin for an alternate final exam date.</li>
+  <li>The Registrar's Office reserves the right to change a Final day and/or room at any time if needed.</li>
+</ol>
